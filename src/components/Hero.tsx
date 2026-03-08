@@ -46,6 +46,7 @@ const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const scrollTracker = useRef({ targetFrame: 0, currentFrame: 0 });
+  const lastDrawnFrameRef = useRef<number>(-1);
 
   // Intro Sequence Logic
   useEffect(() => {
@@ -100,17 +101,21 @@ const Hero = () => {
     if (!canvasRef.current) return;
     const canvas = canvasRef.current;
 
+    // Use parent container dimensions instead of window.innerHeight to avoid mobile scroll jank
+    const rect = canvas.parentElement?.getBoundingClientRect();
+    if (!rect) return;
+
     // Handle high-dpi displays
     const dpr = window.devicePixelRatio || 1;
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
+    const containerWidth = Math.round(rect.width);
+    const containerHeight = Math.round(rect.height);
 
-    // Only set width/height if changed to prevent unnecessary reflows
-    if (canvas.width !== windowWidth * dpr || canvas.height !== windowHeight * dpr) {
-      canvas.width = windowWidth * dpr;
-      canvas.height = windowHeight * dpr;
-      canvas.style.width = `${windowWidth}px`;
-      canvas.style.height = `${windowHeight}px`;
+    // Only set width/height if changed to prevent unnecessary canvas buffer destruction
+    if (canvas.width !== containerWidth * dpr || canvas.height !== containerHeight * dpr) {
+      canvas.width = containerWidth * dpr;
+      canvas.height = containerHeight * dpr;
+      canvas.style.width = `${containerWidth}px`;
+      canvas.style.height = `${containerHeight}px`;
     }
 
     // Redraw current frame
@@ -121,7 +126,10 @@ const Hero = () => {
   const drawFrame = (frameIndex: number, images: HTMLImageElement[], forceContextReset = false) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d");
+    // Skip redundant drawing if frame hasn't changed unless forced (like on resize)
+    if (!forceContextReset && lastDrawnFrameRef.current === frameIndex) return;
+
+    const ctx = canvas.getContext("2d", { alpha: false });
     if (!ctx) return;
 
     // Ensure we don't go out of bounds
@@ -131,11 +139,13 @@ const Hero = () => {
     if (!img || !img.complete || img.naturalHeight === 0) return; // Image not ready yet
 
     const dpr = window.devicePixelRatio || 1;
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
+    // Use canvas element's CSS pixels (which match the stable sticky container)
+    const renderBoxWidth = canvas.clientWidth;
+    const renderBoxHeight = canvas.clientHeight;
 
     // Reset transform before clearing and drawing
     ctx.setTransform(1, 0, 0, 1, 0, 0);
+    // Since alpha: false, filling with black is sometimes faster, but clearRect works too
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Scale drawing context to match DPR
@@ -143,25 +153,26 @@ const Hero = () => {
 
     // Calculate "cover" math
     const imgAspect = img.width / img.height;
-    const canvasAspect = windowWidth / windowHeight;
+    const canvasAspect = renderBoxWidth / renderBoxHeight;
 
     let renderWidth, renderHeight, x, y;
 
     if (canvasAspect > imgAspect) {
       // Canvas is wider than the image (crop top/bottom)
-      renderWidth = windowWidth;
-      renderHeight = windowWidth / imgAspect;
+      renderWidth = renderBoxWidth;
+      renderHeight = renderBoxWidth / imgAspect;
       x = 0;
-      y = (windowHeight - renderHeight) / 2;
+      y = (renderBoxHeight - renderHeight) / 2;
     } else {
       // Canvas is taller than the image (crop left/right)
-      renderWidth = windowHeight * imgAspect;
-      renderHeight = windowHeight;
-      x = (windowWidth - renderWidth) / 2;
+      renderWidth = renderBoxHeight * imgAspect;
+      renderHeight = renderBoxHeight;
+      x = (renderBoxWidth - renderWidth) / 2;
       y = 0;
     }
 
     ctx.drawImage(img, x, y, renderWidth, renderHeight);
+    lastDrawnFrameRef.current = frameIndex;
   };
 
   // Scroll Scrubbing & Animation Loop
