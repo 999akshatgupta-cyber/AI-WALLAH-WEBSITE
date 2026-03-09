@@ -270,7 +270,7 @@ const Hero = () => {
       <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-black pt-32 pb-20">
         {/* Abstract Background Grid & Glows */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        <div className="absolute left-1/2 top-0 -z-10 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-primary/20 opacity-30 blur-[120px]"></div>
+        <div className="absolute left-1/2 top-0 -z-10 h-[500px] w-[500px] max-w-full -translate-x-1/2 rounded-full bg-primary/20 opacity-30 blur-[120px]"></div>
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none z-10"></div>
 
         <div className="container relative z-20 flex flex-col items-center text-center">
@@ -286,7 +286,7 @@ const Hero = () => {
           </div>
 
           {/* Main Headline */}
-          <h1 className="mt-8 max-w-[1000px] text-[clamp(3rem,8vw,6.5rem)] font-bold leading-[1.05] tracking-tight text-white animate-in fade-in slide-in-from-bottom-10 duration-700 ease-out drop-shadow-lg" style={{ animationDelay: '250ms' }}>
+          <h1 className="mt-8 max-w-[1000px] text-[clamp(2.5rem,8vw,6.5rem)] font-bold leading-[1.05] tracking-tight text-white animate-in fade-in slide-in-from-bottom-10 duration-700 ease-out drop-shadow-lg" style={{ animationDelay: '250ms' }}>
             We build AI systems
             <br className="hidden sm:block" />{" "}
             that do your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary/50">repetitive</span> work.
@@ -370,7 +370,7 @@ const Hero = () => {
       {/* Service Panels — Full-width section below the animation */}
       <section className="relative bg-black py-20 sm:py-28">
         {/* Subtle top glow connecting to the animation */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] max-w-full h-[200px] bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
 
         <div className="container relative z-10">
           <div className="flex items-start justify-between gap-4 mb-10">
