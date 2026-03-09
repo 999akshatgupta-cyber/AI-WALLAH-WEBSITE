@@ -6,9 +6,6 @@ import { Button } from "@/components/ui/button";
 
 const INTRO_DURATION_MS = 5500;
 const INTRO_EXIT_MS = 700;
-
-const INTRO_DURATION_MS = 5500;
-const INTRO_EXIT_MS = 700;
 const ENABLE_MOBILE_CONTAIN_MODE = true; // Set to false to revert to 'cover' zooming on mobile
 
 const getIntroWindow = () => window as Window & { __mindovernoiseIntroSeen?: boolean };
