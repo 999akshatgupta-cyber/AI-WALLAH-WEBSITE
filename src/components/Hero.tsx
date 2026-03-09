@@ -7,6 +7,10 @@ import { Button } from "@/components/ui/button";
 const INTRO_DURATION_MS = 5500;
 const INTRO_EXIT_MS = 700;
 
+const INTRO_DURATION_MS = 5500;
+const INTRO_EXIT_MS = 700;
+const ENABLE_MOBILE_CONTAIN_MODE = true; // Set to false to revert to 'cover' zooming on mobile
+
 const getIntroWindow = () => window as Window & { __mindovernoiseIntroSeen?: boolean };
 
 const heroMetrics = [
@@ -151,24 +155,44 @@ const Hero = () => {
     // Scale drawing context to match DPR
     ctx.scale(dpr, dpr);
 
-    // Calculate "cover" math
+    // Calculate "cover" vs "contain" math
     const imgAspect = img.width / img.height;
     const canvasAspect = renderBoxWidth / renderBoxHeight;
 
     let renderWidth, renderHeight, x, y;
 
-    if (canvasAspect > imgAspect) {
-      // Canvas is wider than the image (crop top/bottom)
-      renderWidth = renderBoxWidth;
-      renderHeight = renderBoxWidth / imgAspect;
-      x = 0;
-      y = (renderBoxHeight - renderHeight) / 2;
+    // Determine if we should use contain mode (canvas is taller than wide, usually meaning mobile portrait)
+    const isPortrait = canvasAspect < 1;
+    const useContain = ENABLE_MOBILE_CONTAIN_MODE && isPortrait;
+
+    if (useContain) {
+      if (canvasAspect > imgAspect) {
+        // "Contain" math when canvas is wider (rare if we already checked isPortrait, but good for safety)
+        renderHeight = renderBoxHeight;
+        renderWidth = renderBoxHeight * imgAspect;
+        x = (renderBoxWidth - renderWidth) / 2;
+        y = 0;
+      } else {
+        // "Contain" math when canvas is taller
+        renderWidth = renderBoxWidth;
+        renderHeight = renderBoxWidth / imgAspect;
+        x = 0;
+        y = (renderBoxHeight - renderHeight) / 2;
+      }
     } else {
-      // Canvas is taller than the image (crop left/right)
-      renderWidth = renderBoxHeight * imgAspect;
-      renderHeight = renderBoxHeight;
-      x = (renderBoxWidth - renderWidth) / 2;
-      y = 0;
+      if (canvasAspect > imgAspect) {
+        // "Cover" math: Canvas is wider than the image (crop top/bottom)
+        renderWidth = renderBoxWidth;
+        renderHeight = renderBoxWidth / imgAspect;
+        x = 0;
+        y = (renderBoxHeight - renderHeight) / 2;
+      } else {
+        // "Cover" math: Canvas is taller than the image (crop left/right)
+        renderWidth = renderBoxHeight * imgAspect;
+        renderHeight = renderBoxHeight;
+        x = (renderBoxWidth - renderWidth) / 2;
+        y = 0;
+      }
     }
 
     ctx.drawImage(img, x, y, renderWidth, renderHeight);
@@ -316,7 +340,7 @@ const Hero = () => {
       {/* Main Hero that scrubs canvas on scroll */}
       <div ref={containerRef} className="relative h-[250vh]">
         {/* Sticky Container */}
-        <div className="sticky top-0 h-[100svh] w-full overflow-hidden flex items-end">
+        <div className="sticky top-0 h-[100svh] w-full overflow-hidden flex items-end bg-black">
 
           {/* Canvas WebGL/2D Background — z-[5] so it sits ABOVE the default stacking but below overlays */}
           <canvas
