@@ -27,8 +27,8 @@ const Navigation = () => {
       <div className="mx-auto max-w-[1380px]">
         <div className="panel-surface flex items-center justify-between rounded-[1.6rem] px-4 py-3 sm:px-5">
           <Link to="/" className="flex min-w-0 items-center gap-3">
-            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-[1rem] border border-primary/25 bg-primary/10 shadow-[0_0_22px_hsl(var(--primary)/0.18)]">
-              <span className="font-display text-xs font-semibold uppercase tracking-[0.34em] text-primary">MN</span>
+            <div className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-[1rem] border border-primary/25 bg-primary/10 shadow-[0_0_22px_hsl(var(--primary)/0.18)]">
+              <img src="/logo.png" alt="Mindovernoise Logo" className="h-full w-full object-cover object-center" />
             </div>
 
             <div className="min-w-0">
