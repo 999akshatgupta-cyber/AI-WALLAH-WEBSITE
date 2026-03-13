@@ -281,7 +281,7 @@ const Hero = () => {
               className={`mt-4 text-[clamp(1.2rem,3vw,2.5rem)] font-normal tracking-tight text-white/90 transition-all delay-200 duration-1000 ease-out ${isIntroActive ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
                 }`}
             >
-              welcome to mindovernoise
+              welcome to mindsovernoise
             </p>
           </div>
         </section>
