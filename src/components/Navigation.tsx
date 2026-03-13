@@ -33,7 +33,7 @@ const Navigation = () => {
 
             <div className="min-w-0">
               <p className="truncate font-display text-sm font-semibold uppercase tracking-[0.26em] text-foreground">
-                Mindovernoise
+                Mindsovernoise
               </p>
               <p className="hidden text-[0.62rem] uppercase tracking-[0.24em] text-muted-foreground sm:block">
                 AI systems and interface design
