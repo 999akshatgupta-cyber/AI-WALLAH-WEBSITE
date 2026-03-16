@@ -26,18 +26,13 @@ const Navigation = () => {
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-[1380px]">
         <div className="panel-surface flex items-center justify-between rounded-[1.6rem] px-4 py-3 sm:px-5">
-          <Link to="/" className="flex min-w-0 items-center gap-3 group">
-            <div className="grid h-12 w-12 sm:h-14 sm:w-14 shrink-0 place-items-center overflow-hidden rounded-[1rem] border border-primary/20 bg-black shadow-[0_0_15px_hsl(var(--primary)/0.15)]">
-              <img src="/brand%20logo.png" alt="Mindsovernoise Logo" className="h-full w-full object-cover scale-[1.35] transition-transform duration-500 group-hover:scale-[1.45]" />
-            </div>
-
-            <div className="min-w-0">
-              <p className="truncate font-display text-base font-bold uppercase tracking-[0.24em] text-foreground">
-                Mindsovernoise
-              </p>
-              <p className="hidden text-[0.62rem] uppercase tracking-[0.24em] text-muted-foreground sm:block">
-                AI Operational Agency
-              </p>
+          <Link to="/" className="flex items-center group relative z-10 transition-all duration-300 hover:opacity-90 hover:scale-[1.02]">
+            <div className="relative flex items-center mix-blend-screen">
+              <img 
+                src="/brand%20logo.png" 
+                alt="Mindsovernoise Logo" 
+                className="h-12 sm:h-[3.25rem] w-auto object-contain object-left drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" 
+              />
             </div>
           </Link>
 
