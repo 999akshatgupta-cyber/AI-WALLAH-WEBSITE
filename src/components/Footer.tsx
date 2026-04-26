@@ -5,8 +5,7 @@ import { cn } from "@/lib/utils";
 const footerLinks = [
   { label: "About", path: "/about" },
   { label: "Projects", path: "/projects" },
-  { label: "Systems", path: "/philosophy" },
-  { label: "Capabilities", path: "/resume" },
+  { label: "Founder", path: "/resume" },
   { label: "Contact", path: "/contact" },
 ];
 
@@ -23,13 +22,13 @@ const Footer = ({ className }: FooterProps) => {
         <div className="panel-surface rounded-[2rem] p-8 sm:p-10">
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.7fr_0.7fr]">
             <div className="space-y-5">
-              <span className="eyebrow">Mind over noise</span>
+              <span className="eyebrow">AI WALLAH</span>
               <div className="space-y-3">
                 <h2 className="text-3xl font-semibold tracking-[-0.07em] text-foreground sm:text-4xl">
                   Don't just add AI. Multiply your output.
                 </h2>
                 <p className="max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
-                  We build custom automated systems that eliminate operational friction, give you scalable leverage, and free your team to do the work that actually matters.
+                  We help Indian SMEs put AI inside their daily workflow — built around how their business actually runs, not a generic template.
                 </p>
               </div>
             </div>
@@ -50,18 +49,17 @@ const Footer = ({ className }: FooterProps) => {
             </div>
 
             <div className="space-y-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Current mode</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">What we do</p>
               <div className="space-y-3 text-sm text-muted-foreground">
-                <p>Engineering custom workflows and intelligent automation systems.</p>
-                <p>Auditing mid-market businesses for high ROI bottlenecks.</p>
-                <p>Based on structural leverage, systems thinking, and operational clarity.</p>
+                <p>We sit with the business owner, map their daily workflow, and find where AI can actually save time or money.</p>
+                <p>Then we build and integrate the system end-to-end, customised to how they already work.</p>
               </div>
             </div>
           </div>
 
           <div className="mt-10 flex flex-col gap-3 border-t border-white/8 pt-6 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-            <p>Made with intent</p>
-            <p>{year} Akshat Gupta / Mindovernoise</p>
+            <p>Based in NITK Suratkal, India</p>
+            <p>{year} AI WALLAH / Akshat Gupta</p>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ const INTRO_DURATION_MS = 5500;
 const INTRO_EXIT_MS = 700;
 const ENABLE_MOBILE_CONTAIN_MODE = true; // Set to false to revert to 'cover' zooming on mobile
 
-const getIntroWindow = () => window as Window & { __mindovernoiseIntroSeen?: boolean };
+const getIntroWindow = () => window as Window & { __aiwallahIntroSeen?: boolean };
 
 const heroMetrics = [
   { label: "Focus", value: "Operational friction & custom workflows" },
@@ -39,7 +39,7 @@ const currentFramePath = (index: number) => `/sequence/frame_${index.toString().
 
 const Hero = () => {
   const [introPhase, setIntroPhase] = useState<"enter" | "exit" | "done">(
-    typeof window !== "undefined" && getIntroWindow().__mindovernoiseIntroSeen ? "done" : "enter",
+    typeof window !== "undefined" && getIntroWindow().__aiwallahIntroSeen ? "done" : "enter",
   );
   const [isIntroActive, setIsIntroActive] = useState(false);
 
@@ -56,7 +56,7 @@ const Hero = () => {
       return;
     }
 
-    getIntroWindow().__mindovernoiseIntroSeen = true;
+    getIntroWindow().__aiwallahIntroSeen = true;
 
     const frame = window.requestAnimationFrame(() => {
       setIsIntroActive(true);
@@ -281,7 +281,7 @@ const Hero = () => {
               className={`mt-4 text-[clamp(1.2rem,3vw,2.5rem)] font-normal tracking-tight text-white/90 transition-all delay-200 duration-1000 ease-out ${isIntroActive ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
                 }`}
             >
-              welcome to mindsovernoise
+              welcome to AI WALLAH
             </p>
           </div>
         </section>
@@ -302,7 +302,7 @@ const Hero = () => {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
               </span>
-              Operational Intelligence
+              AI for Indian SMEs
             </span>
           </div>
 
@@ -397,19 +397,19 @@ const Hero = () => {
           <div className="flex items-start justify-between gap-4 mb-10">
             <div>
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-primary">
-                What We Build
+                What we build
               </p>
               <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-[-0.04em] text-white">
-                Agnostic Systems.
+                Three things, mostly.
               </h2>
             </div>
             <div className="hidden rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-primary sm:block self-start mt-2">
-              agnostic system
+              workflow-first
             </div>
           </div>
 
           <div className="hazard-stripe rounded-[1.4rem] px-5 py-4 text-sm leading-6 tracking-tight shadow-[0_14px_40px_hsl(var(--primary)/0.18)] mb-10">
-            We don't sell AI for the sake of AI. We map your exact business logic first, identify the bottlenecks, and only deploy technology where it guarantees a measurable return on investment.
+            We don't sell AI just because it's the new thing. We sit with your business, see how the work actually flows, and only build where it will save you real time or money.
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

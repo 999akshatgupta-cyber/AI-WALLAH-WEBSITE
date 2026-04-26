@@ -3,34 +3,40 @@ import SiteLayout from "@/components/SiteLayout";
 
 const values = [
   {
-    title: "Systems over hacks",
-    description: "We prefer workflows that scale with clarity over quick tricks that only work once.",
+    title: "We start from the workflow, not the tool",
+    description:
+      "Before we talk about AI, we sit with the business owner and understand how the work actually moves day to day. Only then do we decide what to automate.",
   },
   {
-    title: "Reality over hype",
-    description: "Technology without a business case is just expensive decoration. We build for measurable ROI.",
+    title: "Built for the business, not a template",
+    description:
+      "Every business runs differently. We build the system around how the owner already works, with the customisations they want — not a copy-paste setup.",
   },
   {
-    title: "Frictionless execution",
-    description: "The best systems are the ones your team doesn't have to think about.",
+    title: "End-to-end, not just a demo",
+    description:
+      "We don't drop a tool and walk away. We integrate the system into the business, train the team, and make sure it actually runs in real conditions.",
   },
 ];
 
 const timeline = [
   {
-    label: "Foundation",
-    title: "Systems Thinking",
-    description: "We look at businesses not as a collection of tasks, but as a system of interconnected levers.",
+    label: "Where it started",
+    title: "Talking to real businesses",
+    description:
+      "AI WALLAH started with one observation: most Indian SMEs have no idea what AI can already do for them. So we went and met them — coaching institutes, CA firms, law firms, car showrooms — over 50 offline conversations.",
   },
   {
-    label: "Execution",
-    title: "Intelligent Workflows",
-    description: "We deploy AI where it guarantees a measurable return, eliminating delays and manual labor.",
+    label: "What we are doing now",
+    title: "Shipping working systems",
+    description:
+      "We are building real systems for real clients. A JEE mock-test performance analyst for a coaching institute, a customer-query agent for a service business, custom workflow automations for CA firms.",
   },
   {
-    label: "Outcome",
-    title: "Uncapped Leverage",
-    description: "With constraints removed, your team is free to focus entirely on high-impact growth.",
+    label: "Where we are going",
+    title: "From projects to a productised offer",
+    description:
+      "Every business we work with teaches us where AI fits cleanly and where it doesn't. The plan is simple: keep building, find the patterns, and turn the strongest fit into something we can deliver again and again.",
   },
 ];
 
@@ -41,23 +47,23 @@ const About = () => {
         eyebrow="About"
         title={
           <>
-            <span className="block">The Mind Over</span>
+            <span className="block">We help Indian SMEs</span>
             <span className="block">
-              <span className="accent-word">Noise</span> Standard.
+              put <span className="accent-word">AI</span> inside their daily workflow.
             </span>
           </>
         }
-        description="AI is just a tool. We focus on the system."
+        description="AI WALLAH is an AI consulting agency. We work with small and mid-sized Indian businesses that are already running well but haven't yet seen what AI can do for the work they do every day."
         metrics={[
-          { label: "Identity", value: "Mindovernoise / Akshat Gupta" },
-          { label: "Discipline", value: "Operational problem solving, AI systems" },
-          { label: "Approach", value: "Question hard, eliminate friction" },
+          { label: "What we are", value: "AI consulting agency for Indian SMEs" },
+          { label: "What we do", value: "Map the workflow, build the system, integrate it end-to-end" },
+          { label: "Who we work with", value: "Coaching institutes, CA firms, law firms, service businesses" },
         ]}
         aside={
           <div className="space-y-5">
-            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-primary">The Manifesto</p>
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-primary">In one line</p>
             <h2 className="text-[clamp(1.5rem,4vw,2.5rem)] font-semibold tracking-tight leading-[1.2] text-foreground">
-              Most agencies are trying to sell you the newest AI tool just because it looks cool. We don't.
+              We make AI useful for businesses that don't have the time to figure it out themselves.
             </h2>
           </div>
         }
@@ -66,16 +72,19 @@ const About = () => {
       <section className="container py-24 sm:py-32">
         <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(320px,0.9fr)]">
           <article className="panel-surface rounded-[2rem] p-8 sm:p-10">
-            <span className="eyebrow">Story</span>
+            <span className="eyebrow">Why this exists</span>
             <div className="mt-6 space-y-5 text-sm leading-8 text-muted-foreground sm:text-base">
               <p>
-                My name is Akshat Gupta. I built this agency because I realized that while technology is changing fast, the core mechanics of a profitable business remain exactly the same: efficiency, cost-reduction, and speed.
+                There are thousands of small and mid-sized businesses in India that are already making good revenue. They have a working business, a real customer base, and a team that runs the day-to-day. What most of them don't have is awareness of what AI can actually do for them.
               </p>
               <p>
-                We operate on absolute reality. Before we write a single line of code, we look at your current workflow and ask 'Why are you doing it this way?' until we find the real bottleneck.
+                A lot of the work happening inside these businesses — copying data from one place to another, answering the same customer questions, preparing the same reports every week, following up with the same kind of leads — can be done by an AI system today. The owners aren't ignoring AI. They just haven't had anyone come and show them, in their own context, where it fits.
               </p>
               <p>
-                We don't believe AI is magic. It is a lever. And if you place a lever in the exact right spot, you can lift a massive amount of weight. Our job is to find that exact spot in your business.
+                That's where AI WALLAH comes in. We meet the business, sit with the owner, understand exactly how the work flows, and then build an AI-integrated system that fits that flow. Not a generic tool. A real system, customised for them, integrated into the business end-to-end.
+              </p>
+              <p>
+                If it saves them time, reduces cost, or removes a bottleneck, we charge for the build. That's the model. Simple.
               </p>
             </div>
           </article>
@@ -93,9 +102,9 @@ const About = () => {
 
       <section className="container py-24 sm:py-32">
         <div className="mb-8 max-w-3xl space-y-4">
-          <span className="eyebrow">Timeline</span>
+          <span className="eyebrow">Where we are right now</span>
           <h2 className="text-[clamp(1.8rem,5vw,3.8rem)] font-semibold leading-[1.1] tracking-tight text-foreground">
-            The path is still moving, but the direction is clear.
+            Still early. Already shipping.
           </h2>
         </div>
 

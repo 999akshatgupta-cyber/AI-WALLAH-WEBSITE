@@ -112,9 +112,9 @@ const processSteps = [
 ];
 
 const principles = [
-  "AI is a lever, not a magic wand.",
-  "We operate on reality, not hype.",
-  "If we can't save you money, we won't pitch you.",
+  "We start with the workflow. The AI part comes after.",
+  "If we can't save you time or money, we won't pitch you a build.",
+  "Built around how your business already runs — not a copy-paste template.",
 ];
 
 const Home = () => {
@@ -146,12 +146,7 @@ const Home = () => {
             </span>
           </h2>
           <p className="max-w-2xl mx-auto text-sm leading-8 text-muted-foreground sm:text-base">
-            Right now, your employees are spending hours manually moving data
-            between software, copying and pasting emails, and doing tasks a
-            machine could do instantly.{" "}
-            <strong className="text-foreground">The Pivot:</strong> Off-the-shelf
-            software won't fix this. You need a custom system built specifically
-            for how your business runs today.
+            Right now, your team is spending hours moving data between tools, replying to the same kind of emails, and doing the same handoffs every day. Most of that is work an AI system can do in the background. Off-the-shelf software won't fix it because it's not built for how <em className="text-foreground not-italic font-medium">your</em> business runs. We build that system around the way you already work.
           </p>
         </div>
 
@@ -315,19 +310,16 @@ const Home = () => {
       <section className="container py-24 sm:py-32">
         <div className="grid gap-5 xl:grid-cols-[minmax(0,0.95fr)_minmax(320px,1.05fr)]">
           <article className="panel-surface rounded-[2rem] p-8 sm:p-10">
-            <span className="eyebrow">Philosophy</span>
+            <span className="eyebrow">How we think about it</span>
             <blockquote className="display-title mt-6 max-w-2xl text-[clamp(1.8rem,5vw,3.8rem)] font-semibold leading-[1.1] tracking-tight text-foreground">
-              <span className="block">Every system can</span>
+              <span className="block">AI is not a magic wand.</span>
               <span className="block">
-                be questioned. <span className="accent-word">Every</span>
+                It's a <span className="accent-word">tool.</span>
               </span>
-              <span className="block">question can become a system.</span>
+              <span className="block">The work is putting it in the right place.</span>
             </blockquote>
             <p className="mt-6 max-w-xl text-sm leading-8 text-muted-foreground sm:text-base">
-              We believe that AI is not a magic wand. It is a lever. And if you
-              place a lever in the right spot, you can move mountains. Our job is
-              to find that exact spot in your business to maximize leverage and
-              eliminate friction.
+              Most of the value isn't in the AI itself. It's in understanding the business well enough to know exactly where AI should sit, what it should do, and what the team should keep doing. That's the part we focus on.
             </p>
           </article>
 

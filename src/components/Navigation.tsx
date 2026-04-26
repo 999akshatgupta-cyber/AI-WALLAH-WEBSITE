@@ -9,8 +9,7 @@ const links = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Projects", path: "/projects" },
-  { name: "Systems", path: "/philosophy" },
-  { name: "Capabilities", path: "/resume" },
+  { name: "Founder", path: "/resume" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -30,7 +29,7 @@ const Navigation = () => {
             <div className="relative flex items-center">
               <img
                 src="/logo_final.png"
-                alt="Mindsovernoise Logo"
+                alt="AI WALLAH Logo"
                 className="h-12 sm:h-[3.25rem] w-auto object-contain object-left scale-[1.3] transform origin-left"
               />
             </div>
